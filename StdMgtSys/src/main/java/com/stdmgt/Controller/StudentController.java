@@ -15,6 +15,7 @@ import main.java.com.stdmgt.model.Student;
 import main.java.com.stdmgt.service.StudentService;
 
 @Controller
+@RequestMapping(value="student")
 public class StudentController {
 	
 	@Autowired
@@ -45,7 +46,7 @@ public class StudentController {
 			studentService.updateStudent(student);
 		}
 		
-		return "redirect:/getAllStudents";
+		return "redirect:/student/getAllStudents";
 	}
 
 	@RequestMapping(value = "/updateStudent/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
@@ -58,7 +59,7 @@ public class StudentController {
 	@RequestMapping(value = "/deleteStudent/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public String deleteStudent(@PathVariable("id") int id) {
 		studentService.deleteStudent(id);
-		 return "redirect:/getAllStudents";
+		 return "redirect:/student/getAllStudents";
 
 	}	
 
