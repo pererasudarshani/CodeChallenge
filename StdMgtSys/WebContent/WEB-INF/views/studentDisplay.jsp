@@ -33,7 +33,7 @@ th {
 </style>
 </head>
 <body>
-<form:form method="post" modelAttribute="student" action="//addStudent">
+<form:form method="post" modelAttribute="student" action="/StdMgtSys/student/addStudent">
 <table>
 		<tr>
 			<th colspan="2">Add Student</th>
@@ -91,8 +91,8 @@ th {
 			<td>${student.lastName}</td>
 			<td>${student.age}</td>
 			<td>${student.adress}</td>
-			<td><a href="<c:url value='/updateStudent/${student.stdId}' />" >Edit</a></td>
-			<td><a href="<c:url value='/deleteStudent/${student.stdId}' />" >Delete</a></td>
+			<td><a href="<c:url value='/student/updateStudent/${student.stdId}' />" >Edit</a></td>
+			<td><a href="<c:url value='/student/deleteStudent/${student.stdId}' />" >Delete</a></td>
 		</tr>
 	</c:forEach>
 	</table>
