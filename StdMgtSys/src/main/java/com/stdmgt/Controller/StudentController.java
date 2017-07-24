@@ -20,9 +20,11 @@ public class StudentController {
 	
 	@Autowired
 	StudentService studentService;
-	
+	/*
+	 * @out
+	 */
 	@RequestMapping(value = "/getAllStudents", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String getCountries(Model model) {
+	public String getAllStudents(Model model) {
 		
 		List<Student> listOfStudents = studentService.getAllStudents();
 		model.addAttribute("student", new Student());
@@ -36,7 +38,7 @@ public class StudentController {
 	}
 
 	@RequestMapping(value = "/addStudent", method = RequestMethod.POST, headers = "Accept=application/json")
-	public String addCountry(@ModelAttribute("student") Student student) {	
+	public String addStudent(@ModelAttribute("student") Student student) {	
 		if(student.getStdId()==0)
 		{
 			studentService.addStudent(student);
@@ -50,7 +52,7 @@ public class StudentController {
 	}
 
 	@RequestMapping(value = "/updateStudent/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String updateCountry(@PathVariable("id") int id,Model model) {
+	public String updateStudent(@PathVariable("id") int id,Model model) {
 		 model.addAttribute("student", this.studentService.getStudent(id));
 	        model.addAttribute("listOfStudents", this.studentService.getAllStudents());
 	        return "studentDisplay";
